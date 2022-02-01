@@ -1,3 +1,5 @@
+# RandomNumberGenerator
+![alt text](screen.png "RandomNumberGenerator")
 # GulpAssembly
 npm i
 gulp start

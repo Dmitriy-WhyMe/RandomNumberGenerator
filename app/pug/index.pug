@@ -1,0 +1,50 @@
+- var img = 'img/';
+
+doctype
+html
+	include blocks/head.pug
+		title
+	body
+		include blocks/header.pug
+
+		main.page-container
+			.generator
+				#time-title 
+					img(src=img+"time.svg", alt="")
+					#date 31.1.2022, 17:15:49, GMT +2
+				h1 Генератор случайных <span>чисел.рф</span>
+				.title__sub Случайное число:
+				#numbers 0
+				.count-random-number Количество случайных чисел: <span id="max-count">1</span>
+				<div id="set-count-div"><input style="margin:15px auto 0 auto; text-align:center; width:50px; display:none;" id="set-count-num" onchange="SetNumCountManual()" oninput="SetNumCountManual()" type="text" onkeyup="this.value = this.value.replace (/[^\d]+/gi, '')" maxlength="4" value="1" autocomplete="off" value="0" /></div>
+				input(oninput="countChange()" type="range" class="slider" id="count" min="1" max="100" value="1" step="1")
+				<div id="btns"><div id="my-button" onclick="Gen();">Сгенерировать</div></div>
+				.row(class="flex")
+					.diap(class="flex")
+						<input onclick="spoilers()" type="radio" name="action_r" id="diap" checked="checked">
+						<label for="diap"> Из диапазона</label>
+					.listr(class="flex")
+						<input onclick="spoilers()" type="radio" name="action_r" id="listr">
+						<label for="listr"> Из списка</label>
+					<div style="display:none; align-items:center; padding-bottom:3px; padding-left:7px;">
+						<input onclick="spoilers()" type="radio" name="action_r" id="listr2">
+						<label for="listr2"></label>
+					</div>
+				#diap-spoiler
+					.flex-block
+						span от
+						input(id="number-start" type="text" onkeyup="this.value = this.value.replace (/[^\d]+/gi, '')" maxlength="5" value="1" autocomplete="off")
+					.flex-block
+						span до
+						input(id="number-end" type="text" onkeyup="this.value = this.value.replace (/[^\d]+/gi, '')" maxlength="5" value="100" autocomplete="off")
+				#list-spoiler
+					textarea(id="number-list" onkeyup="this.value = this.value.replace (/[^\d ]+/gi, '')" cols="35" rows="5" maxlength="8388607" autocomplete="off" placeholder="укажите список целых чисел, через пробел")
+				.flex-column
+					#sort-div
+						input(type="checkbox" id="sort_cb")
+						label(for="sort_cb") сортировать по возрастанию
+					#exclude
+						input(type="checkbox" id="unique_r" checked="checked")
+						label(for="unique_r") исключить повторения
+		include blocks/footer.pug
+		include blocks/scripts.pug

@@ -13,11 +13,13 @@ html
 					img(src=img+"time.svg", alt="")
 					#date 31.1.2022, 17:15:49, GMT +2
 				h1 Генератор случайных <span>чисел.рф</span>
-				.title__sub Случайное число:
+				.title__sub(id="my-title") Случайное число:
 				#numbers 0
 				.count-random-number Количество случайных чисел: <span id="max-count">1</span>
 				<div id="set-count-div"><input style="margin:15px auto 0 auto; text-align:center; width:50px; display:none;" id="set-count-num" onchange="SetNumCountManual()" oninput="SetNumCountManual()" type="text" onkeyup="this.value = this.value.replace (/[^\d]+/gi, '')" maxlength="4" value="1" autocomplete="off" value="0" /></div>
-				input(oninput="countChange()" type="range" class="slider" id="count" min="1" max="100" value="1" step="1")
+				.block
+					input(oninput="countChange()" type="range" class="slider" id="count" min="1" max="100" value="1" step="1")
+					.bg-input
 				<div id="btns"><div id="my-button" onclick="Gen();">Сгенерировать</div></div>
 				.row(class="flex")
 					.diap(class="flex")

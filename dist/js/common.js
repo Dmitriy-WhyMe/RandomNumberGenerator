@@ -118,21 +118,21 @@
 		if (document.getElementById('sort_cb').checked)
 			sortActivate = '&sort=1';
 		
-		if (document.getElementById('diap').checked)
+		if (document.getElementById('diap').checked){
 			GetData('/modules/api.php?count=' + num_count + '&min=' + min + '&max=' + max + uniqueActivate + sortActivate).then(function(responseText) {
 				OutResult(responseText);
 			
 			}).catch(function() {
-				document.getElementById('numbers').innerHTML = 'API недоступен';
+				//document.getElementById('numbers').innerHTML = 'API недоступен';
 			});
-			
-		if (document.getElementById('listr').checked)
+		}
+		if (document.getElementById('listr').checked){
 			GetData('/modules/api.php?count=' + num_count + '&numbers=' + numbers + uniqueActivate + sortActivate).then(function(responseText) {
 				OutResult(responseText);
 			}).catch(function() {
 				document.getElementById('numbers').innerHTML = 'API недоступен';
 			});
-			
+		}
 		if (document.getElementById('listr2').checked) {
 			if (numbers == '') {
 				GetData('/modules/api.php?count=' + num_count + '&min=' + min + '&max=' + max + uniqueActivate + sortActivate).then(function(responseText) {

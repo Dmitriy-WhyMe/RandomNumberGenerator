@@ -1,0 +1,11 @@
+User-agent: *              
+Disallow: /modules/  
+
+User-agent: GoogleBot   
+Disallow: /modules/  
+
+User-agent: Yandex   
+Disallow: /modules/  
+
+Host: https://генератор-случайных-чисел.рф
+Sitemap: https://генератор-случайных-чисел.рф/sitemap.xml
